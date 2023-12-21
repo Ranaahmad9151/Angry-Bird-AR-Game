@@ -5,10 +5,17 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
+    public static GameManager instance;
+
     private BaseState currentState;
     public BaseState CurrentState
     {
         get { return currentState; }
+    }
+
+    private void Awake()
+    {
+        instance = this;
     }
     private void Start() => SetState(typeof(StartState));
 
